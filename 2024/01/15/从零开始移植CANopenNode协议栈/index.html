@@ -13,34 +13,35 @@
 <meta property="og:site_name" content="MM32 Technical Notes">
 <meta property="og:description" content="基于MM32G5330移植CANopenNode协议栈引言基本的CAN总线外设驱动程序能够提供基本的操作硬件电路系统的服务，但在具体的应用系统中，更多是基于协议栈开发上层应用，而不是针对某个具体的芯片平台编写定制的应用程序。目前CANopen是工业自动化领域最常用的协议栈标准之一。对应地，有一些实现CANopen协议的开源软件包，例如CANopenNode、CAN Festival等。  CANo">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/.com//CANopen-intro-basics-guide-dummies-tutorial.png">
-<meta property="og:image" content="http://example.com/.com//OSI_Mode_For_CANopen.png">
-<meta property="og:image" content="http://example.com/.com//01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/OSI_Mode_For_CANopen.png">
-<meta property="og:image" content="http://example.com/.com//CANopen-Network-Model-Object-Dictionary-Communication-Application.svg">
-<meta property="og:image" content="http://example.com/.com//ModeforCANopen.png">
-<meta property="og:image" content="http://example.com/.com//CANopen-COB-ID-Message-Format-CAN-Frame.png">
-<meta property="og:image" content="http://example.com/.com//CANopen-data-structural.png">
-<meta property="og:image" content="http://example.com/.com//CANopen_BasicNetwork.png">
-<meta property="og:image" content="http://example.com/.com//CANopen_ComplexesNetwork.png">
-<meta property="og:image" content="http://example.com/.com//CANopenStatus.png">
-<meta property="og:image" content="http://example.com/.com//components_canopen.png">
-<meta property="og:image" content="http://example.com/.com//CANopenNode-example.png">
-<meta property="og:image" content="http://example.com/.com//CANopenNode-drvTemp.png">
-<meta property="og:image" content="http://example.com/.com//PCAN-View.png">
-<meta property="og:image" content="http://example.com/.com//image-mcu&pc.png">
-<meta property="og:image" content="http://example.com/.com//Stop-the-Node.png">
-<meta property="og:image" content="http://example.com/.com//Start-the-Node.png">
-<meta property="og:image" content="http://example.com/.com//Preoperaion-the-Node.png">
-<meta property="og:image" content="http://example.com/.com//Reset--the-Node.png">
-<meta property="og:image" content="http://example.com/.com//Reset-commu-the-Node.png">
-<meta property="og:image" content="http://example.com/.com//Get-heartbeat.png">
-<meta property="og:image" content="http://example.com/.com//Set-heartbeat.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/CANopen-intro-basics-guide-dummies-tutorial.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/OSI_Mode_For_CANopen.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/OSI_Mode_For_CANopen.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/OSI_Mode_For_CANopen.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/CANopen-Network-Model-Object-Dictionary-Communication-Application.svg">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/ModeforCANopen.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/CANopen-COB-ID-Message-Format-CAN-Frame.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/CANopen-data-structural.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/CANopen_BasicNetwork.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/CANopen_ComplexesNetwork.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/CANopenStatus.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/components_canopen.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/CANopenNode-example.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/CANopenNode-drvTemp.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/PCAN-View.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/image-mcu&pc.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/Stop-the-Node.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/Start-the-Node.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/Preoperaion-the-Node.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/Reset--the-Node.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/Reset-commu-the-Node.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/Get-heartbeat.png">
+<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/Set-heartbeat.png">
 <meta property="article:published_time" content="2024-01-15T07:33:10.000Z">
-<meta property="article:modified_time" content="2024-01-16T02:51:07.562Z">
+<meta property="article:modified_time" content="2024-01-16T03:07:19.060Z">
 <meta property="article:author" content="Allen Ma">
 <meta property="article:tag" content="CANopenNode">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//CANopen-intro-basics-guide-dummies-tutorial.png">
+<meta name="twitter:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/CANopen-intro-basics-guide-dummies-tutorial.png">
   
     <link rel="alternate" href="/atom.xml" title="MM32 Technical Notes" type="application/atom+xml">
   
@@ -126,15 +127,16 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h2 id="基于MM32G5330移植CANopenNode协议栈"><a href="#基于MM32G5330移植CANopenNode协议栈" class="headerlink" title="基于MM32G5330移植CANopenNode协议栈"></a>基于MM32G5330移植CANopenNode协议栈</h2><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>基本的CAN总线外设驱动程序能够提供基本的操作硬件电路系统的服务，但在具体的应用系统中，更多是基于协议栈开发上层应用，而不是针对某个具体的芯片平台编写定制的应用程序。目前CANopen是工业自动化领域最常用的协议栈标准之一。对应地，有一些实现CANopen协议的开源软件包，例如CANopenNode、CAN Festival等。</p>
-<p><img src="/.com//CANopen-intro-basics-guide-dummies-tutorial.png" alt="CANopen-intro-basics-guide-dummies-tutorial"></p>
+<p><img src="CANopen-intro-basics-guide-dummies-tutorial.png" alt="CANopen-intro-basics-guide-dummies-tutorial"></p>
 <h2 id="CANopen概述"><a href="#CANopen概述" class="headerlink" title="CANopen概述"></a>CANopen概述</h2><p><strong>CANopen 的诞生和作用</strong></p>
 <p>CANopen 协议是在20世纪90年代末，由总部位于德国纽伦堡的CiA (CAN-in-Automation)组织(<a target="_blank" rel="noopener" href="http://www.can-cia.org)在cal/">http://www.can-cia.org)在CAL</a>(CAN Application Layer)的基础上发展而来。由于CANopen协议的创始人团队也是CAN-bus的创始人团队，此协议充分发挥了CAN-bus所具备的所有优势，特别是 CiA 组织的主席蔡豪格((Holger Zeltwanger)先生对于CANopen协议坚持开放、免费、非盈利的原则。一经推出便在欧洲得到了广泛的认可与应用。虽然CiA组织背后没有强大的财阀支撑，但时至今日已经成为全世界最为流行的CAN应用层协议。</p>
 <p>CANopen主要提供了两个服务：第一个是提供了一个基于CAN的通信协议，可以将多个设备连接到一个总线；第二个是提供了一个用于设备管理的标准，可以将多个设备组织成一个系统，以实现远程监控和控制。目前，CANopen作为工业自动化领域最常用的标准之一，被广泛应用于汽车、航空航天、楼宇自动化等行业。 </p>
 <p>如图x所示，CNAopen是一个基于CAN总线的上层协议，其中CAN涵盖了OSI模型的前两层：物理层和数据链路层，CANopen涵盖了后五层：网络层（寻址、路由）、传输层（端到端可靠性）、会话层（同步）、表现层（以标准方式编码的数据、数据表现）和应用层。应用层规定了CANopen设备是如何配置、传输和同步。</p>
-<p><img src="/.com//OSI_Mode_For_CANopen.png" alt="OSI_Mode_For_CANopen"></p>
+<p><img src="OSI_Mode_For_CANopen.png" alt="OSI_Mode_For_CANopen"></p>
+<p><img src="OSI_Mode_For_CANopen.png" alt="OSI_Mode_For_CANopen2"></p>
 <center> 图x </center>
 
-<img src="/.com//01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/OSI_Mode_For_CANopen.png" class title="This is an example image">
+<img src="01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/OSI_Mode_For_CANopen.png" class title="This is an example image">
 
 
 <p>  CANopen从应用端到CAN总线的结构如下图x所示：</p>
@@ -152,14 +154,14 @@
 </ul>
 </li>
 </ul>
-<p><img src="/.com//CANopen-Network-Model-Object-Dictionary-Communication-Application.svg" alt="CANopen-Network-Model-Object-Dictionary-Communication-Application"></p>
+<p><img src="CANopen-Network-Model-Object-Dictionary-Communication-Application.svg" alt="CANopen-Network-Model-Object-Dictionary-Communication-Application"></p>
 <center> 图 x </center>
 
 
 
 
 <p>在CANopen网络中，通常需要多个设备进行通信，在CANopen网络中用到了如下三种通信模型：</p>
-<p><img src="/.com//ModeforCANopen.png" alt="3ModeOfCANopen"></p>
+<p><img src="ModeforCANopen.png" alt="3ModeOfCANopen"></p>
 <ul>
 <li>主机&#x2F;从机模型(Master&#x2F;Salve)<ul>
 <li>一个节点(例如控制接口)充当应用程序主机控制器，从机(例如伺服电机)发送&#x2F;请求数据，一般在诊断或状态管理中使用。</li>
@@ -191,7 +193,7 @@
 <ul>
 <li>11位CAN ID在CANopen中被称为COB-ID，这11位COB-ID被分为两部分：前4位是功能码，后7位是(节点ID)，且7位的节点ID限制了CANopen网络上的设备数量为127个节点。</li>
 </ul>
-<p><img src="/.com//CANopen-COB-ID-Message-Format-CAN-Frame.png" alt="CANopen-COB-ID-Message-Format-CAN-Frame"></p>
+<p><img src="CANopen-COB-ID-Message-Format-CAN-Frame.png" alt="CANopen-COB-ID-Message-Format-CAN-Frame"></p>
 <p><strong>CANopen的7种报文类型</strong></p>
 <ul>
 <li><p>NMT(Network Management)</p>
@@ -250,7 +252,7 @@
 <li>Default Value(默认值): </li>
 <li>Category (类型)：指定此参数是否为强制&#x2F;可选(M&#x2F;O)。</li>
 </ul>
-<p>  <img src="/.com//CANopen-data-structural.png" alt="CANopen-data-structural"></p>
+<p>  <img src="CANopen-data-structural.png" alt="CANopen-data-structural"></p>
 </li>
 <li><p>EDS(The Electronic Data Sheet)</p>
 <ul>
@@ -328,14 +330,14 @@
 <li>总线长度的估计是基于5 ns&#x2F;m的传播延迟。此外，还需要考虑所用的CAN控制器、CAN收发器和光耦合器的延迟时间。</li>
 </ul>
 <p>如图x所示为CANopen网络的基本结构，在该网络中有一个CANopen主站，负责管理网络中的所有从站，每个设备都有一个独立的节点地址（NodeID）。从站与从站之间也能建立通信，通常需要事先对各个从站进行配置，使各个从站之间能够建立起独立的PDO通信。</p>
-<p><img src="/.com//CANopen_BasicNetwork.png" alt="image-20230224143027633"></p>
+<p><img src="CANopen_BasicNetwork.png" alt="image-20230224143027633"></p>
 <center>图x </center>
 
 
 
 
 <p>图x所示为带有网关设备的CANopen网络，与基本的CANopen网络相比，该网络中增加了一个CANopen网关设备，该网关设备可以是CANopen转DeviceNet、Profibus、Modbus或其它的设备。在CANopen网络中，我们也可把该网关设备作为一个从站设备或者是CANopen主站设备。</p>
-<p><img src="/.com//CANopen_ComplexesNetwork.png" alt="CANopen_ComplexesNetwork"></p>
+<p><img src="CANopen_ComplexesNetwork.png" alt="CANopen_ComplexesNetwork"></p>
 <center> 图x </center>
 
 
@@ -375,7 +377,7 @@
 </li>
 </ul>
 <p>如下图x所示，上述六种状态中除了初始化状态外，都可以通过NMT主机发送NMT命令让CANopen网络中任意一个节点进行其他5种状态的切换。</p>
-<p><img src="/.com//CANopenStatus.png" alt="CANopen-status"></p>
+<p><img src="CANopenStatus.png" alt="CANopen-status"></p>
 <center> 图x </center>
 
 
@@ -560,18 +562,18 @@
 ./stack/crc16-ccitt.c&amp;h
 </code></pre>
 <p>如下图x所示：</p>
-<p><img src="/.com//components_canopen.png" alt="image-20231213182716874"> </p>
+<p><img src="components_canopen.png" alt="image-20231213182716874"> </p>
 <center>图 x </center>
 
 <p>接着将CANopenNode源码中提供的example文件夹的结构如下图x所示，其中CO_OD.c&#x2F;h是 CANopen中使用到的对象字典， 我们将这两个文件复制到 MM32G5330样例工程的board文件夹下。main.c是 CANopenNode的主程序文件，我们将将原有的main.c文件进行替换。</p>
-<p><img src="/.com//CANopenNode-example.png" alt="image-20230130180116311"></p>
+<p><img src="CANopenNode-example.png" alt="image-20230130180116311"></p>
 <center> 图 x </center>
 
 
 
 
 <p>最后将如图x所示的位于CANopenNode-1.3&#x2F;stack&#x2F;drvTemplate文件夹下的CO_driver.c及CO_driver_target.h这两个文件复制到样例工程的文件夹下。</p>
-<p><img src="/.com//CANopenNode-drvTemp.png" alt="image-20230131094145961"></p>
+<p><img src="CANopenNode-drvTemp.png" alt="image-20230131094145961"></p>
 <center> 图 x </center>
 
 
@@ -629,7 +631,7 @@
 </tr>
 </tbody></table>
 <p>如图x所示。</p>
-<p><img src="/.com//PCAN-View.png" alt="image-20230220110237610"></p>
+<p><img src="PCAN-View.png" alt="image-20230220110237610"></p>
 <center>图x </center>
 
 <p>至此，可验证该CANopen节点设备成功启动并开始正常运行。</p>
@@ -652,7 +654,7 @@
 </li>
 </ul>
 <h2 id="调试与开发"><a href="#调试与开发" class="headerlink" title="调试与开发"></a>调试与开发</h2><h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>使用搭载了MM32G5330 MCU的开发板Mini-G5330 ，以CANopen_Basic样例工程为例，将开发板上的CAN收发器与PCAN相连接，并将PCAN与PC机通过USB相连接，在PC端（基于Win10操作系统）使用PCAN-View上位机进行CAN通信，如图x所示。 </p>
-<p><img src="/.com//image-mcu&pc.png" alt="image-mcu&amp;pc"></p>
+<p><img src="image-mcu&pc.png" alt="image-mcu&amp;pc"></p>
 <center>图x MCU与PC机交互示意图 </center>
 
 
@@ -676,7 +678,7 @@
 </tr>
 </tbody></table>
 <p>如下图x所示，可接收到如下报文：</p>
-<p><img src="/.com//Stop-the-Node.png" alt="image-20230220172938551"></p>
+<p><img src="Stop-the-Node.png" alt="image-20230220172938551"></p>
 <center> 图 x </center>
 
 
@@ -698,7 +700,7 @@
 </tr>
 </tbody></table>
 <p>如下图x所示，可接收到如下报文：</p>
-<p><img src="/.com//Start-the-Node.png" alt="image-20230220181043270"></p>
+<p><img src="Start-the-Node.png" alt="image-20230220181043270"></p>
 <center> 图x </center>
 
 <ul>
@@ -719,7 +721,7 @@
 </tr>
 </tbody></table>
 <p>如下图x所示，该节点进入Pre-operation模式，可接收到如下报文：</p>
-<p><img src="/.com//Preoperaion-the-Node.png" alt="image-20230220173143412"></p>
+<p><img src="Preoperaion-the-Node.png" alt="image-20230220173143412"></p>
 <center> 图 x </center>
 
 
@@ -741,7 +743,7 @@
 </tr>
 </tbody></table>
 <p>如下图x所示，该节点被复位：</p>
-<p><img src="/.com//Reset--the-Node.png" alt="image-20230220173338692"></p>
+<p><img src="Reset--the-Node.png" alt="image-20230220173338692"></p>
 <center> 图 x </center>
 
 
@@ -763,7 +765,7 @@
 </tr>
 </tbody></table>
 <p>如下图x所示，该节点通信层被复位，重新上线：</p>
-<p><img src="/.com//Reset-commu-the-Node.png" alt="image-20230220181246407"></p>
+<p><img src="Reset-commu-the-Node.png" alt="image-20230220181246407"></p>
 <center> 图 x </center>
 
 
@@ -785,7 +787,7 @@
 </tr>
 </tbody></table>
 <p>如下图x所示，返回该节点当前心跳发送间隔时间为1000(0x03E8)ms：</p>
-<p><img src="/.com//Get-heartbeat.png" alt="image-20230220174859554"></p>
+<p><img src="Get-heartbeat.png" alt="image-20230220174859554"></p>
 <center> 图 x </center>
 
 
@@ -807,7 +809,7 @@
 </tr>
 </tbody></table>
 <p>如下图x所示，该节点当前心跳发送间隔时间变为500ms：</p>
-<p><img src="/.com//Set-heartbeat.png" alt="image-20230220175604643"></p>
+<p><img src="Set-heartbeat.png" alt="image-20230220175604643"></p>
 <center> 图 x </center>
 
 
@@ -823,7 +825,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/" data-id="clrfqdhmg0000nwv92ayheccw" data-title="从零开始移植CANopenNode协议栈" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/" data-id="clrfrx07c0001g8v9fojq2bfc" data-title="从零开始移植CANopenNode协议栈" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
