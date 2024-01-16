@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   
-  <title>从零开始移植CANopenNode协议栈 | MindMotion Document</title>
+  <title>从零开始移植CANopenNode协议栈 | MM32 Technical Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="基于MM32G5330移植CANopenNode协议栈引言基本的CAN总线外设驱动程序能够提供基本的操作硬件电路系统的服务，但在具体的应用系统中，更多是基于协议栈开发上层应用，而不是针对某个具体的芯片平台编写定制的应用程序。目前CANopen是工业自动化领域最常用的协议栈标准之一。对应地，有一些实现CANopen协议的开源软件包，例如CANopenNode、CAN Festival等。  CANo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始移植CANopenNode协议栈">
 <meta property="og:url" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/index.html">
-<meta property="og:site_name" content="MindMotion Document">
+<meta property="og:site_name" content="MM32 Technical Notes">
 <meta property="og:description" content="基于MM32G5330移植CANopenNode协议栈引言基本的CAN总线外设驱动程序能够提供基本的操作硬件电路系统的服务，但在具体的应用系统中，更多是基于协议栈开发上层应用，而不是针对某个具体的芯片平台编写定制的应用程序。目前CANopen是工业自动化领域最常用的协议栈标准之一。对应地，有一些实现CANopen协议的开源软件包，例如CANopenNode、CAN Festival等。  CANo">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/.com//CANopen-intro-basics-guide-dummies-tutorial.png">
 <meta property="og:image" content="http://example.com/.com//OSI_Mode_For_CANopen.png">
+<meta property="og:image" content="http://example.com/.com//01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/OSI_Mode_For_CANopen.png">
 <meta property="og:image" content="http://example.com/.com//CANopen-Network-Model-Object-Dictionary-Communication-Application.svg">
 <meta property="og:image" content="http://example.com/.com//ModeforCANopen.png">
 <meta property="og:image" content="http://example.com/.com//CANopen-COB-ID-Message-Format-CAN-Frame.png">
@@ -35,13 +36,13 @@
 <meta property="og:image" content="http://example.com/.com//Get-heartbeat.png">
 <meta property="og:image" content="http://example.com/.com//Set-heartbeat.png">
 <meta property="article:published_time" content="2024-01-15T07:33:10.000Z">
-<meta property="article:modified_time" content="2024-01-16T02:37:29.363Z">
+<meta property="article:modified_time" content="2024-01-16T02:51:07.562Z">
 <meta property="article:author" content="Allen Ma">
 <meta property="article:tag" content="CANopenNode">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/.com//CANopen-intro-basics-guide-dummies-tutorial.png">
   
-    <link rel="alternate" href="/atom.xml" title="MindMotion Document" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="MM32 Technical Notes" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -70,11 +71,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">MindMotion Document</a>
+        <a href="/" id="logo">MM32 Technical Notes</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">这是一个MM32 技术文档博客 Demo 页</a>
+          <a href="/" id="subtitle">这是一个 MM32 技术文档博客</a>
         </h2>
       
     </div>
@@ -133,7 +134,7 @@
 <p><img src="/.com//OSI_Mode_For_CANopen.png" alt="OSI_Mode_For_CANopen"></p>
 <center> 图x </center>
 
-
+<img src="/.com//01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/OSI_Mode_For_CANopen.png" class title="This is an example image">
 
 
 <p>  CANopen从应用端到CAN总线的结构如下图x所示：</p>
