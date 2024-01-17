@@ -15,8 +15,6 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/CANopen-intro-basics-guide-dummies-tutorial.png">
 <meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/OSI_Mode_For_CANopen.png">
-<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/OSI_Mode_For_CANopen.png">
-<meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/OSI_Mode_For_CANopen.png">
 <meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/CANopen-Network-Model-Object-Dictionary-Communication-Application.svg">
 <meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/ModeforCANopen.png">
 <meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/CANopen-COB-ID-Message-Format-CAN-Frame.png">
@@ -37,7 +35,7 @@
 <meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/Get-heartbeat.png">
 <meta property="og:image" content="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/Set-heartbeat.png">
 <meta property="article:published_time" content="2024-01-15T07:33:10.000Z">
-<meta property="article:modified_time" content="2024-01-16T03:07:19.060Z">
+<meta property="article:modified_time" content="2024-01-16T03:29:44.573Z">
 <meta property="article:author" content="Allen Ma">
 <meta property="article:tag" content="CANopenNode">
 <meta name="twitter:card" content="summary">
@@ -133,12 +131,6 @@
 <p>CANopen主要提供了两个服务：第一个是提供了一个基于CAN的通信协议，可以将多个设备连接到一个总线；第二个是提供了一个用于设备管理的标准，可以将多个设备组织成一个系统，以实现远程监控和控制。目前，CANopen作为工业自动化领域最常用的标准之一，被广泛应用于汽车、航空航天、楼宇自动化等行业。 </p>
 <p>如图x所示，CNAopen是一个基于CAN总线的上层协议，其中CAN涵盖了OSI模型的前两层：物理层和数据链路层，CANopen涵盖了后五层：网络层（寻址、路由）、传输层（端到端可靠性）、会话层（同步）、表现层（以标准方式编码的数据、数据表现）和应用层。应用层规定了CANopen设备是如何配置、传输和同步。</p>
 <p><img src="OSI_Mode_For_CANopen.png" alt="OSI_Mode_For_CANopen"></p>
-<p><img src="OSI_Mode_For_CANopen.png" alt="OSI_Mode_For_CANopen2"></p>
-<center> 图x </center>
-
-<img src="01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/OSI_Mode_For_CANopen.png" class title="This is an example image">
-
-
 <p>  CANopen从应用端到CAN总线的结构如下图x所示：</p>
 <ul>
 <li>应用层(Application)<ul>
@@ -330,7 +322,7 @@
 <li>总线长度的估计是基于5 ns&#x2F;m的传播延迟。此外，还需要考虑所用的CAN控制器、CAN收发器和光耦合器的延迟时间。</li>
 </ul>
 <p>如图x所示为CANopen网络的基本结构，在该网络中有一个CANopen主站，负责管理网络中的所有从站，每个设备都有一个独立的节点地址（NodeID）。从站与从站之间也能建立通信，通常需要事先对各个从站进行配置，使各个从站之间能够建立起独立的PDO通信。</p>
-<p><img src="CANopen_BasicNetwork.png" alt="image-20230224143027633"></p>
+<p><img src="CANopen_BasicNetwork.png" alt="CANopen_BasicNetwork"></p>
 <center>图x </center>
 
 
@@ -562,18 +554,18 @@
 ./stack/crc16-ccitt.c&amp;h
 </code></pre>
 <p>如下图x所示：</p>
-<p><img src="components_canopen.png" alt="image-20231213182716874"> </p>
+<p><img src="components_canopen.png" alt="components_CANopenNode"> </p>
 <center>图 x </center>
 
 <p>接着将CANopenNode源码中提供的example文件夹的结构如下图x所示，其中CO_OD.c&#x2F;h是 CANopen中使用到的对象字典， 我们将这两个文件复制到 MM32G5330样例工程的board文件夹下。main.c是 CANopenNode的主程序文件，我们将将原有的main.c文件进行替换。</p>
-<p><img src="CANopenNode-example.png" alt="image-20230130180116311"></p>
+<p><img src="CANopenNode-example.png" alt="CANopenNode-example"></p>
 <center> 图 x </center>
 
 
 
 
 <p>最后将如图x所示的位于CANopenNode-1.3&#x2F;stack&#x2F;drvTemplate文件夹下的CO_driver.c及CO_driver_target.h这两个文件复制到样例工程的文件夹下。</p>
-<p><img src="CANopenNode-drvTemp.png" alt="image-20230131094145961"></p>
+<p><img src="CANopenNode-drvTemp.png" alt="CANopenNode-drvTemp"></p>
 <center> 图 x </center>
 
 
@@ -631,7 +623,7 @@
 </tr>
 </tbody></table>
 <p>如图x所示。</p>
-<p><img src="PCAN-View.png" alt="image-20230220110237610"></p>
+<p><img src="PCAN-View.png" alt="PCAN-View"></p>
 <center>图x </center>
 
 <p>至此，可验证该CANopen节点设备成功启动并开始正常运行。</p>
@@ -678,7 +670,7 @@
 </tr>
 </tbody></table>
 <p>如下图x所示，可接收到如下报文：</p>
-<p><img src="Stop-the-Node.png" alt="image-20230220172938551"></p>
+<p><img src="Stop-the-Node.png" alt="Stop-the-Node"></p>
 <center> 图 x </center>
 
 
@@ -700,7 +692,7 @@
 </tr>
 </tbody></table>
 <p>如下图x所示，可接收到如下报文：</p>
-<p><img src="Start-the-Node.png" alt="image-20230220181043270"></p>
+<p><img src="Start-the-Node.png" alt="Start-the-Node"></p>
 <center> 图x </center>
 
 <ul>
@@ -721,7 +713,7 @@
 </tr>
 </tbody></table>
 <p>如下图x所示，该节点进入Pre-operation模式，可接收到如下报文：</p>
-<p><img src="Preoperaion-the-Node.png" alt="image-20230220173143412"></p>
+<p><img src="Preoperaion-the-Node.png" alt="Preoperaion-the-Node"></p>
 <center> 图 x </center>
 
 
@@ -743,7 +735,7 @@
 </tr>
 </tbody></table>
 <p>如下图x所示，该节点被复位：</p>
-<p><img src="Reset--the-Node.png" alt="image-20230220173338692"></p>
+<p><img src="Reset--the-Node.png" alt="Reset--the-Node"></p>
 <center> 图 x </center>
 
 
@@ -765,7 +757,7 @@
 </tr>
 </tbody></table>
 <p>如下图x所示，该节点通信层被复位，重新上线：</p>
-<p><img src="Reset-commu-the-Node.png" alt="image-20230220181246407"></p>
+<p><img src="Reset-commu-the-Node.png" alt="Reset-commu-the-Node"></p>
 <center> 图 x </center>
 
 
@@ -787,7 +779,7 @@
 </tr>
 </tbody></table>
 <p>如下图x所示，返回该节点当前心跳发送间隔时间为1000(0x03E8)ms：</p>
-<p><img src="Get-heartbeat.png" alt="image-20230220174859554"></p>
+<p><img src="Get-heartbeat.png" alt="Get-heartbeat"></p>
 <center> 图 x </center>
 
 
@@ -809,7 +801,7 @@
 </tr>
 </tbody></table>
 <p>如下图x所示，该节点当前心跳发送间隔时间变为500ms：</p>
-<p><img src="Set-heartbeat.png" alt="image-20230220175604643"></p>
+<p><img src="Set-heartbeat.png" alt="Set-heartbeat"></p>
 <center> 图 x </center>
 
 
@@ -825,7 +817,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/" data-id="clrfrx07c0001g8v9fojq2bfc" data-title="从零开始移植CANopenNode协议栈" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/" data-id="clrhimnl80000o4v95oo7019r" data-title="从零开始移植CANopenNode协议栈" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -860,7 +852,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CANopenNode/" rel="tag">CANopenNode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LwIP/" rel="tag">LwIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TinyUSB/" rel="tag">TinyUSB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB/" rel="tag">USB</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CANopenNode/" rel="tag">CANopenNode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LwIP/" rel="tag">LwIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TinyUSB/" rel="tag">TinyUSB</a></li></ul>
     </div>
   </div>
 
@@ -870,7 +862,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CANopenNode/" style="font-size: 10px;">CANopenNode</a> <a href="/tags/LwIP/" style="font-size: 10px;">LwIP</a> <a href="/tags/TinyUSB/" style="font-size: 10px;">TinyUSB</a> <a href="/tags/USB/" style="font-size: 10px;">USB</a>
+      <a href="/tags/CANopenNode/" style="font-size: 10px;">CANopenNode</a> <a href="/tags/LwIP/" style="font-size: 10px;">LwIP</a> <a href="/tags/TinyUSB/" style="font-size: 10px;">TinyUSB</a>
     </div>
   </div>
 
